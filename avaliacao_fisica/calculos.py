@@ -78,6 +78,82 @@ def classificar_gordura(gordura, sexo, idade):
                 return 'Ruim'
             else:
                 return 'Muito Ruim'
-            
-                
-                
+        elif idade <= 49:
+            if gordura < 15:
+                return 'Excelente'
+            elif gordura < 17:
+                return 'Muito Bom'
+            elif gordura <20:
+                return 'Bom'
+            elif gordura <24:
+                return 'Razoavel'
+            elif gordura <28:
+                return 'Ruim'
+            else:
+                return 'Muito Ruim'
+        elif idade >= 50:
+            if gordura <17:
+                return 'Excelente'
+            elif gordura <19:
+                return 'Muito Bom'
+            elif gordura <22:
+                return 'Bom'
+            elif gordura <26:
+                return 'Razoavel'
+            elif gordura <30:
+                return 'Ruim'
+            else:
+                return 'Muito Ruim'
+    else:   
+        if idade <= 29:
+            if gordura < 16:
+                return 'Excelente'
+            elif gordura < 19:
+                return 'Muito Bom'
+            elif gordura < 22:
+                return 'Bom'
+            elif gordura < 27:
+                return 'Razoavel'
+            elif gordura < 32:
+                return 'Ruim'
+            else:
+                return 'Muito Ruim'
+        elif idade <= 39:
+            if gordura < 17:
+                return 'Excelente'
+            elif gordura < 21:
+                return 'Muito Bom'
+            elif gordura < 24:
+                return 'Bom'
+            elif gordura < 29:
+                return 'Razoavel'
+            elif gordura <34:
+                return 'Ruim'
+            else:
+                return 'Muito Ruim'
+        elif idade <= 49:
+            if gordura < 19:
+                return 'Excelente'
+            elif gordura < 23:
+                return 'Muito Bom'
+            elif gordura < 26:
+                return 'Bom'
+            elif gordura < 31:
+                return 'Razoavel'
+            elif gordura < 36:
+                return 'Ruim' 
+            else:
+                return 'Muito Ruim'
+        elif idade >= 50:
+            if gordura < 21:
+                return 'Excelente'
+            elif gordura < 25:
+                return 'Muito Bom'
+            elif gordura < 29:
+                return 'Bom'
+            elif gordura < 33:
+                return 'Razoavel'
+            elif gordura < 38:
+                return 'Ruim'
+            else: 
+                return 'Muito Ruim'
