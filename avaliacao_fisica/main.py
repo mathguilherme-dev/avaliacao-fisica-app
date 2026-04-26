@@ -1,4 +1,5 @@
 import customtkinter as ctk
+from telas.tela_cadastro import abrir_cadastro
 
 app = ctk.CTk()
 app.title('Avaliaçao Matheus Guilherme Personal')
@@ -19,7 +20,8 @@ btn_novo = ctk.CTkButton(
     text='+ Novo Aluno',
     width=200,
     height=50,
-    font=ctk.CTkFont(size=16)
+    font=ctk.CTkFont(size=16),
+    command=lambda: abrir_cadastro(app)
 )
 btn_novo.pack(pady=10)
 
@@ -31,6 +33,5 @@ btn_buscar = ctk.CTkButton(
     font=ctk.CTkFont(size=16)
 )
 btn_buscar.pack(pady=10)
-
 
 app.mainloop()
