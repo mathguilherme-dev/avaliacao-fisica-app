@@ -1,0 +1,54 @@
+import customtkinter as ctk
+from banco import listar_alunos
+
+
+def abrir_busca(app):
+    janela = ctk.CTkToplevel(app)
+    janela.title('Buscar Aluno')
+    janela.geometry('400x500')
+    janela.after(100, janela.lift)
+
+    ctk.CTkLabel(janela, text='Selecionar Aluno',
+                 font=ctk.CTkFont(size=20, weight='bold')).pack(pady=20)
+    
+    alunos = listar_alunos()
+    alunos_ordenados = sorted(alunos, key=lambda a: a[1])
+
+    for aluno in alunos_ordenados:
+        ctk.CTkButton(
+            janela,
+            text=aluno[1],
+            width=300,
+            height=40,
+            command=lambda a=aluno: abrir_perfil(app, a)
+        ).pack(pady=5)
+def abrir_perfil(app, aluno):
+    janela = ctk.CTkToplevel(app)
+    janela.title(f'Perfil - {aluno[1]}')
+    janela.geometry('400x350')
+    janela.after(100, janela.lift)
+
+    ctk.CTkLabel(
+        janela, 
+        text=aluno[1],
+        font=ctk.CTkFont(size=22,weight='bold')
+        ).pack(pady=20)
+    
+    ctk.CTkLabel(janela, text=f"Idade: {aluno[2]} anos").pack(pady=5)
+    ctk.CTkLabel(janela, text=f"Sexo: {aluno[3]}").pack(pady=5)
+    ctk.CTkLabel(janela, text=f"Peso: {aluno[4]} kg").pack(pady=5)
+    ctk.CTkLabel(janela, text=f"Altura: {aluno[5]} m").pack(pady=5)
+
+    ctk.CTkButton(
+        janela,
+        text='Nova Avaliaçao',
+        width=300,
+        height=45
+    ).pack(pady=15)
+
+    ctk.CTkButton(
+        janela,
+        text='Ver Avaliaçoes Anteriores',
+        width=300,
+        height=45
+    ).pack(pady=5)
