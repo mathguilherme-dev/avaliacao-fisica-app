@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from banco import listar_alunos
+from telas.tela_avaliacao import abrir_avaliacao
 
 
 def abrir_busca(app):
@@ -9,7 +10,7 @@ def abrir_busca(app):
     janela.after(100, janela.lift)
 
     ctk.CTkLabel(janela, text='Selecionar Aluno',
-                 font=ctk.CTkFont(size=20, weight='bold')).pack(pady=20)
+                font=ctk.CTkFont(size=20, weight='bold')).pack(pady=20)
     
     alunos = listar_alunos()
     alunos_ordenados = sorted(alunos, key=lambda a: a[1])
@@ -41,14 +42,16 @@ def abrir_perfil(app, aluno):
 
     ctk.CTkButton(
         janela,
-        text='Nova Avaliaçao',
+        text='Nova Avaliação',
         width=300,
-        height=45
+        height=45,
+        command=lambda: abrir_avaliacao(app, aluno)
     ).pack(pady=15)
 
     ctk.CTkButton(
         janela,
-        text='Ver Avaliaçoes Anteriores',
+        text='Ver Avaliações Anteriores',
         width=300,
         height=45
     ).pack(pady=5)
+
