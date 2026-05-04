@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from banco import salvar_aluno
+from telas.tela_resultados import abrir_resultados
 from calculos import (
     calcular_imc,
     calcular_rcq,
@@ -65,10 +66,10 @@ def abrir_avaliacao(app, aluno):
         width=300,
         height=45,
         font=ctk.CTkFont(size=15, weight='bold'),
-        command=lambda: calcular(aluno, entries_perimetria, entries_dobras, janela)
+        command=lambda: calcular(app, aluno, entries_perimetria, entries_dobras, janela)
     ).pack(pady=20)
 
-def calcular(aluno, entries_perimetria, entries_dobras, janela):
+def calcular(app, aluno, entries_perimetria, entries_dobras, janela):
     soma = sum([float(e.get().replace(',', '.')) for e in entries_dobras.values()])
     cintura = float(entries_perimetria['Cintura'].get().replace(',', '.'))
     quadril = float(entries_perimetria['Quadril'].get().replace(',', '.'))
@@ -84,7 +85,14 @@ def calcular(aluno, entries_perimetria, entries_dobras, janela):
     class_imc = classificar_imc(imc)
     class_rcq = classificar_rcq(rcq, aluno[3])
 
-    print(f'Gordura: {gordura:.2f}% - {class_gordura}')
-    print(f'IMC: {imc:.2f} - {class_imc}')
-    print(f'RCQ: {rcq:.2f} - {class_rcq}')
-
+    resultados = {
+        'gordura': gordura,
+        'class_gordura': class_gordura,
+        'massa_gorda': massa_gorda,
+        'massa_magra': massa_magra,
+        'imc': imc,
+        'class_imc': class_imc,
+        'rcq': rcq,
+        'class_rcq': class_rcq
+    }
+    abrir_resultados(app, aluno, resultados)

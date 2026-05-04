@@ -4,7 +4,7 @@ from telas.tela_historico import abrir_busca
 
 app = ctk.CTk()
 app.title('Avaliaçao Matheus Guilherme Personal')
-app.geometry('1100x700')
+app.geometry('480x600')
 ctk.set_appearance_mode('dark')
 ctk.set_default_color_theme('blue')
 
