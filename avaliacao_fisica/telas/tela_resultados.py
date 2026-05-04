@@ -16,3 +16,13 @@ def abrir_resultados(app, aluno, resultados):
     ctk.CTkLabel(scroll, text=f"Massa Magra: {resultados['massa_magra']:.2f} kg", font=ctk.CTkFont(size=14)).pack(pady=5)
     ctk.CTkLabel(scroll, text=f"IMC: {resultados['imc']:.2f} — {resultados['class_imc']}", font=ctk.CTkFont(size=14)).pack(pady=5)
     ctk.CTkLabel(scroll, text=f"RCQ: {resultados['rcq']:.2f} — {resultados['class_rcq']}", font=ctk.CTkFont(size=14)).pack(pady=5)
+
+    ctk.CTkButton(
+        scroll,
+        text='<- Voltar',
+        width=300,
+        height=40,
+        fg_color='transparent',
+        border_width=2,
+        command=janela.destroy
+    ).pack(pady=10)

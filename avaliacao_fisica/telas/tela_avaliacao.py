@@ -69,6 +69,16 @@ def abrir_avaliacao(app, aluno):
         command=lambda: calcular(app, aluno, entries_perimetria, entries_dobras, janela)
     ).pack(pady=20)
 
+    ctk.CTkButton(
+        scroll,
+        text='<- Voltar',
+        width=300,
+        height=40,
+        fg_color='transparent',
+        border_width=2,
+        command=janela.destroy
+    ).pack(pady=5)
+
 def calcular(app, aluno, entries_perimetria, entries_dobras, janela):
     soma = sum([float(e.get().replace(',', '.')) for e in entries_dobras.values()])
     cintura = float(entries_perimetria['Cintura'].get().replace(',', '.'))

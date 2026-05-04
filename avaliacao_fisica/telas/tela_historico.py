@@ -21,8 +21,9 @@ def abrir_busca(app):
             text=aluno[1],
             width=300,
             height=40,
-            command=lambda a=aluno: abrir_perfil(app, a)
+            command=lambda a=aluno: [janela.destroy(), abrir_perfil(app, a)]
         ).pack(pady=5)
+
 def abrir_perfil(app, aluno):
     janela = ctk.CTkToplevel(app)
     janela.title(f'Perfil - {aluno[1]}')
@@ -45,7 +46,7 @@ def abrir_perfil(app, aluno):
         text='Nova Avaliação',
         width=300,
         height=45,
-        command=lambda: abrir_avaliacao(app, aluno)
+        command=lambda: [janela.destroy(), abrir_avaliacao(app, aluno)]
     ).pack(pady=15)
 
     ctk.CTkButton(
@@ -55,3 +56,12 @@ def abrir_perfil(app, aluno):
         height=45
     ).pack(pady=5)
 
+    ctk.CTkButton(
+        janela,
+        text='<- Voltar',
+        width=300,
+        height=40,
+        fg_color='transparent',
+        border_width=2,
+        command=janela.destroy
+    ).pack(pady=5)
