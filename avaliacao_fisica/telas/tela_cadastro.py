@@ -32,13 +32,16 @@ def abrir_cadastro(app):
     entry_peso.pack(pady=5)
 
     def salvar():
-        nome = entry_nome.get()
-        idade = int(entry_idade.get())
-        sexo = entry_sexo.get().upper()
-        altura = float(entry_altura.get().replace(',', '.'))
-        peso = float(entry_peso.get().replace(',', '.'))
-        salvar_aluno(nome, idade, sexo, peso, altura)
-        janela.destroy()
+        try:
+            nome = entry_nome.get()
+            idade = int(entry_idade.get())
+            sexo = entry_sexo.get().upper()
+            altura = float(entry_altura.get().replace(',', '.'))
+            peso = float(entry_peso.get().replace(',', '.'))
+            salvar_aluno(nome, idade, sexo, peso, altura)
+            janela.destroy()
+        except ValueError:
+            ctk.CTkLabel(janela, text="Verifique os dados digitados!", text_color="red").pack()
 
     ctk.CTkButton(janela, text='Salvar Aluno',
                   width=300, height=45,

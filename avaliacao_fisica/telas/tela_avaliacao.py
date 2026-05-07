@@ -10,6 +10,7 @@ from calculos import (
     classificar_rcq,
     classificar_gordura
 )
+from banco import salvar_aluno, salvar_avaliacao
 
 def abrir_avaliacao(app, aluno):
     janela = ctk.CTkToplevel(app)
@@ -105,4 +106,5 @@ def calcular(app, aluno, entries_perimetria, entries_dobras, janela):
         'rcq': rcq,
         'class_rcq': class_rcq
     }
+    salvar_avaliacao(aluno[0], soma, gordura, massa_gorda, massa_magra, imc, rcq, aluno[4])
     abrir_resultados(app, aluno, resultados)
